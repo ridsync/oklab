@@ -1,4 +1,4 @@
-package com.okitoki.okchat
+package com.okitoki.okchat.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

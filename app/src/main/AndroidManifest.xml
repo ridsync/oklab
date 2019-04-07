@@ -3,6 +3,7 @@
           package="com.okitoki.okchat">
 
     <application
+            android:name=".core.OKChatApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -10,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".SplashActivity"
+                android:name=".ui.SplashActivity"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -19,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name=".ui.MainActivity"
                 android:label="@string/app_name">
         </activity>
     </application>
