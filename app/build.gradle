@@ -123,7 +123,7 @@ dependencies {
     implementation deps.lifecycle.extensions
     implementation deps.room.runtime
     implementation deps.room.rxjava2
-//    implementation deps.paging_ktx
+    implementation deps.paging_ktx
 
     // Compiler
     kapt deps.lifecycle.compiler

@@ -19,7 +19,7 @@ versions.kotlin = "1.3.21"
 versions.lifecycle = "2.0.0"
 versions.support = "1.0.0"
 versions.junit = "4.12"
-//versions.paging = "2.1.0-rc01"
+versions.paging = "2.1.0"
 versions.rxjava2 = "2.1.3"
 versions.rx_android = "2.0.1"
 versions.espresso = "3.1.0-alpha4"
@@ -91,7 +91,7 @@ deps.room = room
 deps.support = support
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.lifecycle = lifecycle
-//deps.paging_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
+deps.paging_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
 
 deps.retrofit = retrofit
 deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
