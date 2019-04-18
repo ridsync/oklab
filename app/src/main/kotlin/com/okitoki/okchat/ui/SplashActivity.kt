@@ -20,6 +20,8 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>() {
 
         binding.vm = getViewModel()
         binding.setLifecycleOwner(this)
+
+
     }
 
     override fun initDataBinding() {
