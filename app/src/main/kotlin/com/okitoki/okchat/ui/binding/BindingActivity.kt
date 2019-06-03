@@ -13,8 +13,6 @@ abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 
-    abstract fun initDataBinding()
-
     abstract fun initAfterBinding()
 
     protected lateinit var binding: T
@@ -25,7 +23,6 @@ abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, getLayoutResId())
         snackbarObserving()
-        initDataBinding()
         initAfterBinding()
     }
 

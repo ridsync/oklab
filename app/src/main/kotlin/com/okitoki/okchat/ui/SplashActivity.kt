@@ -24,10 +24,6 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>() {
 
     }
 
-    override fun initDataBinding() {
-
-    }
-
     override fun initAfterBinding() {
 
     }
