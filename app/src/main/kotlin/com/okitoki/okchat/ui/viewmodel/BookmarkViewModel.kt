@@ -1,10 +1,11 @@
-package com.okitoki.okchat.viewmodel
+package com.okitoki.okchat.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.okitoki.okchat.data.db.dao.BookmarkDao
 import com.okitoki.okchat.data.db.entity.Bookmark
+import com.okitoki.okchat.ui.base.BaseViewModel
 import com.okitoki.okchat.util.ioThread
 
 /**

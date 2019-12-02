@@ -1,10 +1,11 @@
-package com.okitoki.okchat.viewmodel
+package com.okitoki.okchat.ui.viewmodel
 
 import com.okitoki.okchat.data.db.dao.BookmarkDao
 import com.okitoki.okchat.data.db.entity.Bookmark
 import com.okitoki.okchat.data.net.domain.Repository
 import com.okitoki.okchat.data.net.api.SearchAPI
 import com.okitoki.okchat.extension.with
+import com.okitoki.okchat.ui.base.BaseViewModel
 import com.okitoki.okchat.util.NotNullMutableLiveData
 import com.okitoki.okchat.util.ioThread
 

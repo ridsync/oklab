@@ -1,4 +1,4 @@
-package com.okitoki.okchat.viewmodel
+package com.okitoki.okchat.ui.base
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

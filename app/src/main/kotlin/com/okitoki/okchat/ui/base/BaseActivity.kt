@@ -1,4 +1,4 @@
-package com.okitoki.okchat.ui.binding
+package com.okitoki.okchat.ui.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 /**
  * @author ridsync
  */
-abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 

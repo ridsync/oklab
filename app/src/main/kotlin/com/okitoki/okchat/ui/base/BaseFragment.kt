@@ -1,4 +1,4 @@
-package com.okitoki.okchat.ui.binding
+package com.okitoki.okchat.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 /**
  * @author ridsync
  */
-abstract class BindingFragment<T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 

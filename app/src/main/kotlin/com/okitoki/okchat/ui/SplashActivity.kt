@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import com.okitoki.okchat.R
 import com.okitoki.okchat.databinding.ActivitySplashBinding
-import com.okitoki.okchat.ui.binding.BindingActivity
+import com.okitoki.okchat.ui.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
  * Created by okc on 2019-04-01.
  */
-class SplashActivity : BindingActivity<ActivitySplashBinding>() {
+class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     @LayoutRes
     override fun getLayoutResId() = R.layout.activity_splash

@@ -1,4 +1,4 @@
-package com.okitoki.okchat.ui.binding
+package com.okitoki.okchat.ui.base
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -8,6 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * @author ridsync
  */
-abstract class BindingViewHolder<out T : ViewDataBinding>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class BaseViewHolder<out T : ViewDataBinding>(view: View) : RecyclerView.ViewHolder(view) {
     val binding: T = DataBindingUtil.bind(view)!!
 }

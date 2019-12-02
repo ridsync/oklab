@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="vm" type="com.okitoki.okchat.viewmodel.SearchViewModel"/>
+        <variable name="vm" type="com.okitoki.okchat.ui.viewmodel.SearchViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
