@@ -1,5 +1,6 @@
 package com.okitoki.okchat.data.net.api
 
+import androidx.lifecycle.LiveData
 import com.okitoki.okchat.data.net.response.RepositoriesResponse
 import io.reactivex.Single
 import retrofit2.http.GET

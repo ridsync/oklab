@@ -5,6 +5,7 @@ import com.okitoki.okchat.data.db.entity.Bookmark
 import com.okitoki.okchat.data.net.domain.Repository
 import com.okitoki.okchat.data.net.api.SearchAPI
 import com.okitoki.okchat.extension.with
+import com.okitoki.okchat.repository.SearchRepository
 import com.okitoki.okchat.ui.base.BaseViewModel
 import com.okitoki.okchat.util.NotNullMutableLiveData
 import com.okitoki.okchat.util.ioThread
@@ -12,7 +13,7 @@ import com.okitoki.okchat.util.ioThread
 /**
  * @author ridsync
  */
-class SearchViewModel(private val api: SearchAPI, private val dao: BookmarkDao) : BaseViewModel() {
+class SearchViewModel(private val searchRepository: SearchRepository) : BaseViewModel() {
     private var query: String = ""
         get() = if (field.isEmpty()) "MVVM" else field
 
@@ -30,7 +31,7 @@ class SearchViewModel(private val api: SearchAPI, private val dao: BookmarkDao) 
             this["sort"] = "stars"
         }
 
-        addToDisposable(api.search(params).with()
+        addToDisposable(searchRepository.search(params).with()
             .doOnSubscribe { _refreshing.value = true }
             .doOnSuccess { _refreshing.value = false }
             .doOnError { _refreshing.value = false }
@@ -45,5 +46,5 @@ class SearchViewModel(private val api: SearchAPI, private val dao: BookmarkDao) 
         this.query = query.toString()
     }
 
-    fun saveToBookmark(repository: Repository) = ioThread { dao.insert(Bookmark.to(repository)) }
+    fun saveToBookmark(repository: Repository) = ioThread { searchRepository.insertBookmark(Bookmark.to(repository)) }
 }

@@ -1,10 +1,7 @@
 package com.okitoki.okchat.core
 
 import android.app.Application
-import com.okitoki.okchat.di.apiModule
-import com.okitoki.okchat.di.networkModule
-import com.okitoki.okchat.di.roomModule
-import com.okitoki.okchat.di.viewModelModule
+import com.okitoki.okchat.di.*
 import org.koin.android.ext.android.startKoin
 
 class OKChatApplication : Application() {
@@ -12,8 +9,10 @@ class OKChatApplication : Application() {
         super.onCreate()
         startKoin(this, listOf(
             networkModule,
-            apiModule,
             roomModule,
+            apiModule,
+            executorModule,
+            repoModule,
             viewModelModule
         ))
     }

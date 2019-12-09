@@ -9,6 +9,6 @@ import org.koin.dsl.module.module
  * @author ridsync
  */
 val viewModelModule = module {
-    viewModel { SearchViewModel(get(), get()) }
+    viewModel { SearchViewModel(get()) }
     viewModel { BookmarkViewModel(get()) }
 }

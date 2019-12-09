@@ -1,6 +1,7 @@
 package com.okitoki.okchat.di
 
 import com.okitoki.okchat.data.net.api.SearchAPI
+import com.okitoki.okchat.repository.SearchRepository
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 
