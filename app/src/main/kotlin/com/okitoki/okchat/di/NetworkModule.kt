@@ -2,12 +2,13 @@ package com.okitoki.okchat.di
 
 import com.google.gson.GsonBuilder
 import com.okitoki.okchat.BuildConfig
+import io.reactivex.schedulers.Schedulers.single
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
-import org.koin.dsl.module.module
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
