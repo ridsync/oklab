@@ -1,6 +1,7 @@
 package com.okitoki.okchat.ui
 
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import com.okitoki.okchat.R
@@ -21,14 +22,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding.vm = getViewModel()
-        binding.setLifecycleOwner(this)
-
-
+        binding.lifecycleOwner = this
     }
 
     override fun initAfterBinding() {
+
+        showLoading()
+
+        Handler().postDelayed({ hideLoading() }, 8000L)
 
     }
 
