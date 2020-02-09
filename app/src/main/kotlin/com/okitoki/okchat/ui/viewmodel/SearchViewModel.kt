@@ -1,14 +1,18 @@
 package com.okitoki.okchat.ui.viewmodel
 
-import com.okitoki.okchat.data.db.dao.BookmarkDao
 import com.okitoki.okchat.data.db.entity.Bookmark
 import com.okitoki.okchat.data.net.domain.Repository
-import com.okitoki.okchat.data.net.api.SearchAPI
+import com.okitoki.okchat.data.net.response.RepositoriesResponse
 import com.okitoki.okchat.extension.with
 import com.okitoki.okchat.repository.SearchRepository
 import com.okitoki.okchat.ui.base.BaseViewModel
 import com.okitoki.okchat.util.NotNullMutableLiveData
 import com.okitoki.okchat.util.ioThread
+import io.reactivex.Single
+import io.reactivex.SingleObserver
+import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableSingleObserver
+import retrofit2.Response
 
 /**
  * @author ridsync
@@ -36,9 +40,12 @@ class SearchViewModel(private val searchRepository: SearchRepository) : BaseView
             .doOnSuccess { _refreshing.value = false }
             .doOnError { _refreshing.value = false }
             .subscribe({
-                _items.value = it.repositories
+                val res = processBaseResponse(it)
+                res?.let { res:RepositoriesResponse ->
+                    _items.value = res.repositories
+                }
             }, {
-                // handle errors
+                doOnErrorCallback()
             }))
     }
 

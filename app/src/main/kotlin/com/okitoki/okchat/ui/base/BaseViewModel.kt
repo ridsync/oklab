@@ -1,9 +1,12 @@
 package com.okitoki.okchat.ui.base
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.okitoki.okchat.data.net.response.BaseResponse
+import com.okitoki.okchat.data.net.response.RepositoriesResponse
+import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableSingleObserver
+import retrofit2.Response
 
 open class BaseViewModel : ViewModel() {
 
@@ -25,6 +28,32 @@ open class BaseViewModel : ViewModel() {
     override fun onCleared() {
         compositeDisposable.clear()
         super.onCleared()
+    }
+
+    /**
+     *  Response 처리
+     *  1) BaseResponse 데이터 반환
+     *  2) 코드상 에러처리 및 에러 콜백
+     */
+    protected fun <T : BaseResponse> processBaseResponse(response: Response<T>) : T? {
+        if(response.isSuccessful ){
+            response.body()?.let {
+                // TODO 서버 공통 에러 콜백 처리.
+
+                    return it
+            }
+        }
+        // TODO 네트워크 콜백 처리.
+        doOnErrorCallback()
+        return null
+    }
+
+    /**
+     *  retrfit API errorCallback 처리
+     *  팝업 or 스낵바 or 뷰표시 등의 에러 처리.
+     */
+    fun doOnErrorCallback(){
+
     }
 
     /**
