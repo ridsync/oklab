@@ -32,6 +32,7 @@ versions.koin = "2.0.1"
 versions.axt_runner = "1.1.0-alpha4"
 versions.axt_rules = "1.1.0-alpha4"
 //versions.hamcrest = "2.1"
+versions.exoplayer = "2.11.3"
 
 def support = [:]
 support.annotations = "androidx.annotation:annotation:$versions.support"
@@ -102,6 +103,9 @@ deps.junit = "junit:junit:$versions.junit"
 deps.espresso = espresso
 //deps.mockito = mockito
 //deps.hamcrest = "org.hamcrest:hamcrest:$versions.hamcrest"
+
+deps.exoplayer_core = "com.google.android.exoplayer:exoplayer-core:$versions.exoplayer"
+deps.exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:$versions.exoplayer"
 
 ext.deps = deps
 

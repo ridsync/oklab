@@ -14,8 +14,18 @@
             android:background="@color/colorPrimary"
             tools:context="ui.SplashActivity">
 
+        <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/pvExoplayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="#99000000"
+                app:auto_show="true"
+                app:resize_mode="fill"
+                app:use_controller="false"/>
+
         <ImageView
                 android:id="@+id/ivMessage"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> vm.doSearch()}"

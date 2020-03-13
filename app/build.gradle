@@ -148,4 +148,8 @@ dependencies {
 
     // OkHttp
     implementation deps.okhttp_logging_interceptor
+
+    // Exoplayer
+    implementation deps.exoplayer_core
+    implementation deps.exoplayer_ui
 }
