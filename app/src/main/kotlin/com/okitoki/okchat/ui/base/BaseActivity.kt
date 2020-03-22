@@ -68,4 +68,5 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
         mProgressDialog?.show()
     }
 
+
 }

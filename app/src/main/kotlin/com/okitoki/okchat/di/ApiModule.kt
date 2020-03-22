@@ -1,7 +1,6 @@
 package com.okitoki.okchat.di
 
-import com.okitoki.okchat.data.net.api.SearchAPI
-import com.okitoki.okchat.repository.SearchRepository
+import com.okitoki.okchat.data.net.api.AuthAPI
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -9,5 +8,5 @@ import retrofit2.Retrofit
  * @author ridsync
  */
 val apiModule = module {
-    single(createdAtStart = false) { get<Retrofit>().create(SearchAPI::class.java) }
+    single(createdAtStart = false) { get<Retrofit>().create(AuthAPI::class.java) }
 }

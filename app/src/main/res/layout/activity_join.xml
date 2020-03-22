@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="vm" type="com.okitoki.okchat.ui.viewmodel.SearchViewModel"/>
+        <variable name="vm" type="com.okitoki.okchat.ui.viewmodel.AuthViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
                 android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> vm.doSearch()}"
+                android:onClick="@{() -> vm.reqServerCheck()}"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"

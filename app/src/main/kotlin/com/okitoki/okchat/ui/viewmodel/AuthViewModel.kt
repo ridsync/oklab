@@ -1,23 +1,17 @@
 package com.okitoki.okchat.ui.viewmodel
 
-import com.okitoki.okchat.data.db.entity.Bookmark
 import com.okitoki.okchat.data.net.domain.Repository
 import com.okitoki.okchat.data.net.response.RepositoriesResponse
 import com.okitoki.okchat.extension.with
-import com.okitoki.okchat.repository.SearchRepository
+import com.okitoki.okchat.repository.AuthRepository
 import com.okitoki.okchat.ui.base.BaseViewModel
 import com.okitoki.okchat.util.NotNullMutableLiveData
-import com.okitoki.okchat.util.ioThread
-import io.reactivex.Single
-import io.reactivex.SingleObserver
-import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableSingleObserver
-import retrofit2.Response
+import com.orhanobut.logger.Logger
 
 /**
  * @author ridsync
  */
-class SearchViewModel(private val searchRepository: SearchRepository) : BaseViewModel() {
+class AuthViewModel(private val authRepository: AuthRepository) : BaseViewModel() {
     private var query: String = ""
         get() = if (field.isEmpty()) "MVVM" else field
 
@@ -29,13 +23,16 @@ class SearchViewModel(private val searchRepository: SearchRepository) : BaseView
     val items: NotNullMutableLiveData<List<Repository>>
         get() = _items
 
-    fun doSearch() {
+    fun reqServerCheck() {
         val params = mutableMapOf<String, String>().apply {
-            this["q"] = query
-            this["sort"] = "stars"
+            this["device_id"] = query
+            this["device_type"] = "android"
+            this["fcm_token"] = "stars"// TODO FCM push Token
         }
 
-        addToDisposable(searchRepository.search(params).with()
+        Logger.d("reqServerCheck params %s", params)
+
+        addToDisposable(authRepository.reqServerCheck(params).with()
             .doOnSubscribe { _refreshing.value = true }
             .doOnSuccess { _refreshing.value = false }
             .doOnError { _refreshing.value = false }
@@ -49,9 +46,4 @@ class SearchViewModel(private val searchRepository: SearchRepository) : BaseView
             }))
     }
 
-    fun onQueryChange(query: CharSequence) {
-        this.query = query.toString()
-    }
-
-    fun saveToBookmark(repository: Repository) = ioThread { searchRepository.insertBookmark(Bookmark.to(repository)) }
 }

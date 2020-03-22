@@ -152,4 +152,7 @@ dependencies {
     // Exoplayer
     implementation deps.exoplayer_core
     implementation deps.exoplayer_ui
+
+    // Logger
+    implementation 'com.orhanobut:logger:2.2.0'
 }

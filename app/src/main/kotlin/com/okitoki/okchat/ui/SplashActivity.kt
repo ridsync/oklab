@@ -9,7 +9,11 @@ import com.okitoki.okchat.databinding.ActivitySplashBinding
 import com.okitoki.okchat.ui.base.BaseActivity
 import com.okitoki.okchat.ui.sign.JoinActivity
 import com.okitoki.okchat.ui.sign.LoginActivity
+import com.okitoki.okchat.ui.viewmodel.AuthViewModel
+import com.okitoki.okchat.util.getAppVersion
+import com.orhanobut.logger.Logger
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 /**
@@ -17,6 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
  */
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
+//    private val authViewModel: AuthViewModel by viewModel()
 
     @LayoutRes
     override fun getLayoutResId() = R.layout.activity_splash
@@ -25,21 +30,26 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         super.onCreate(savedInstanceState)
         binding.vm = getViewModel()
         binding.lifecycleOwner = this
+        initCheckServer()
     }
 
     override fun initAfterBinding() {
-
-        Handler().postDelayed({ startLoginActivity() }, 2000L)
-
+        binding.tvVersion.text  = String.format("V %s",getAppVersion(applicationContext))
+        Logger.d("App Version = %s", binding.tvVersion.text.toString())
     }
 
-    fun startLoginActivity(){
+    private fun initCheckServer(){
+        binding.vm?.reqServerCheck()
+        Handler().postDelayed({ startLoginActivity() }, 2000L)
+    }
+
+    private fun startLoginActivity(){
         val intent = Intent(applicationContext, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun startJoinActivity(){
+    private fun startJoinActivity(){
         val intent = Intent(applicationContext, JoinActivity::class.java)
         startActivity(intent)
         finish()

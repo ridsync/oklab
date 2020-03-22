@@ -1,6 +1,6 @@
 package com.okitoki.okchat.di
 
-import com.okitoki.okchat.repository.SearchRepository
+import com.okitoki.okchat.repository.AuthRepository
 import com.okitoki.okchat.util.AppExecutors
 import org.koin.dsl.module
 
@@ -8,7 +8,7 @@ import org.koin.dsl.module
  * Created by okc on 2019-12-09.
  */
 val repoModule = module {
-    single { SearchRepository(get(),get(),get()) }
+    single { AuthRepository(get(),get()) }
 }
 val executorModule = module {
     single { AppExecutors() }
