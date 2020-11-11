@@ -40,7 +40,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun initCheckServer(){
         binding.vm?.reqServerCheck()
-        Handler().postDelayed({ startLoginActivity() }, 2000L)
+        Handler().postDelayed({ startLoginActivity() }, 1000L)
+    }
+
+    private fun startMainActivity(){
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun startLoginActivity(){

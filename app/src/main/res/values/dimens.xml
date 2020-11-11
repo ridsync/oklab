@@ -5,4 +5,5 @@
     <dimen name="text_size_title">15sp</dimen>
     <dimen name="text_size_default">12sp</dimen>
     <dimen name="text_size_desc">11sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

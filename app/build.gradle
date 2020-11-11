@@ -71,6 +71,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     dexOptions {
         preDexLibraries = false
         dexInProcess = false
@@ -131,6 +135,15 @@ dependencies {
 
     // Kotlin
     implementation deps.kotlin.stdlib
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
+    // architecture components
+    implementation "androidx.core:core-ktx:$coreVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
     // RxJava
     implementation deps.rx_android
@@ -155,4 +168,16 @@ dependencies {
 
     // Logger
     implementation 'com.orhanobut:logger:2.2.0'
+
+    // Preferences DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha02"
+
+    // Proto DataStore
+    implementation "androidx.datastore:datastore-core:1.0.0-alpha02"
+    implementation  "com.google.protobuf:protobuf-javalite:3.10.0"
+
+    implementation 'com.google.android.gms:play-services-base:17.5.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
+    implementation 'com.google.android.gms:play-services-identity:17.0.0'
 }

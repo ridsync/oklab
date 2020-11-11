@@ -5,6 +5,7 @@
 
     <data>
         <variable name="vm" type="com.okitoki.okchat.ui.viewmodel.AuthViewModel"/>
+        <variable name="acitivty" type="com.okitoki.okchat.ui.sign.LoginActivity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +28,7 @@
                 android:id="@+id/tvMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClickPhoneTest"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_size_title"
                 android:text="@string/app_name"

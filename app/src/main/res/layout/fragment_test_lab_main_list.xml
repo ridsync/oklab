@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="vm"
+                type="com.okitoki.okchat.ui.viewmodel.AuthViewModel" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:name="com.okitoki.okchat.TestLabMainFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context=".ui.testui.TestLabMainFragment"
+            tools:listitem="@layout/fragment_test_lab_main" />
+
+</layout>
