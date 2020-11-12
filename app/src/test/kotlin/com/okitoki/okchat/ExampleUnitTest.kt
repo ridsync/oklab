@@ -70,7 +70,7 @@ class ExampleUnitTest {
         try {
             val code = Regex("[0-9]+").findAll(message)
                 .map(MatchResult::value)
-                .filter { it.length >= 4 }
+                .filter { it.length in 4..6 }
                 .first()
             if (code.isNotEmpty()) {
                 return code
