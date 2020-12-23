@@ -1,0 +1,23 @@
+
+{
+    "Version": "1.0",
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "ap-northeast-2:fdfe5696-76f3-4aa5-96d9-4df08cffe28a",
+                "Region": "ap-northeast-2"
+            }
+        }
+    },
+    "IdentityManager": {
+        "Default": {
+
+        }
+    },
+    "S3TransferUtility": {
+        "Default": {
+            "Bucket": "okd-profile-photo",
+            "Region": "ap-northeast-2"
+        }
+    }
+}

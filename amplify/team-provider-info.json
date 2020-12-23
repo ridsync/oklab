@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-oklab-dev-172210-authRole",
+      "UnauthRoleArn": "arn:aws:iam::703630528452:role/amplify-oklab-dev-172210-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::703630528452:role/amplify-oklab-dev-172210-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-oklab-dev-172210-deployment",
+      "UnauthRoleName": "amplify-oklab-dev-172210-unauthRole",
+      "StackName": "amplify-oklab-dev-172210",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:703630528452:stack/amplify-oklab-dev-172210/75f14690-429c-11eb-bcb3-02a2b7605e74",
+      "AmplifyAppId": "d1uhxpb5mpzuw"
+    },
+    "categories": {
+      "auth": {
+        "oklabac9ca473": {}
+      }
+    }
+  }
+}
