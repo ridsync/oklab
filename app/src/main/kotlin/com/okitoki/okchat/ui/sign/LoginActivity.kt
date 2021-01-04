@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.datastore.DataStore
@@ -25,6 +26,7 @@ import com.google.android.gms.auth.api.credentials.CredentialsOptions
 import com.google.android.gms.auth.api.credentials.HintRequest
 import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.android.gms.common.api.GoogleApiClient
+import com.mikepenz.aboutlibraries.LibsBuilder
 import com.okitoki.okchat.R
 import com.okitoki.okchat.databinding.ActivityLoginBinding
 import com.okitoki.okchat.ui.base.BaseActivity
@@ -114,7 +116,28 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     fun onClickPhoneTest(view: View){
-        getPhonNumberTest()
+//        getPhonNumberTest()
+//        pickerTest()
+        aboutLibrariesTest()
+    }
+
+    private fun aboutLibrariesTest(){
+        LibsBuilder()
+            .withActivityTitle("오픈소스 테스")
+            .withAboutAppName(getString(R.string.app_name))
+            .withAboutIconShown(true)
+            .withAboutVersionShown(true)
+            .withAutoDetect(true)
+            .withLicenseShown(true)
+            .start(this) // start the activity
+    }
+
+    private fun pickerTest(){
+        val pickPhoto = Intent(
+            Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        )
+        startActivityForResult(pickPhoto, 2002)
     }
 
     /**
