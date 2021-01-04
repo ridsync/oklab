@@ -1,6 +1,10 @@
 package com.okitoki.okchat.core
 
 import android.app.Application
+import com.amplifyframework.AmplifyException
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin
+import com.amplifyframework.core.Amplify
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin
 import com.okitoki.okchat.BuildConfig
 import com.okitoki.okchat.di.*
 import com.orhanobut.logger.AndroidLogAdapter
@@ -30,6 +34,17 @@ class OKChatApplication : Application() {
         }
 
         initLogger()
+        initAwsAmplify()
+    }
+
+    private fun initAwsAmplify() {
+        try {
+            Amplify.addPlugin(AWSCognitoAuthPlugin())
+            Amplify.addPlugin(AWSS3StoragePlugin())
+            Amplify.configure(applicationContext)
+        } catch (error: AmplifyException) {
+            Logger.e("MyAmplifyApp Could not initialize Amplify error : %s", error)
+        }
     }
 
     private fun initLogger(){

@@ -181,6 +181,15 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
     implementation 'com.google.android.gms:play-services-identity:17.0.0'
 
+    // AWS-Amplify
+    implementation 'com.amplifyframework:aws-storage-s3:1.6.7'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.6.7'
+    // AWS-Mobile-SDK
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.20.1'
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.19.3'
+    implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.19.3'
+
+    // AboutLibraries
     implementation "com.mikepenz:aboutlibraries:${latestAboutLibsRelease}"
 
     implementation 'gun0912.ted:tedbottompicker:2.0.1'
