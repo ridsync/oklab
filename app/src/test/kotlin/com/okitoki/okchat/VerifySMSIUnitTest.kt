@@ -34,9 +34,9 @@ class VerifySMSIUnitTest {
     @Test
     fun readStringFromContext_LocalizedString() {
         // Given a mocked Context injected into the object under test...
-        `when`(mockContext.getString(R.string.text_about_us))
-                .thenReturn(FAKE_STRING)
-        val myObjectUnderTest = PushNotiManager(mockContext)
+//        `when`(mockContext.getString(R.string.text_about_us))
+//                .thenReturn(FAKE_STRING)
+//        val myObjectUnderTest = PushNotiManager(mockContext)
 
         // ...when the string is returned from the object under test...
 //        val result: String = myObjectUnderTest.getHelloWorldString()
