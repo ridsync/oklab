@@ -48,6 +48,10 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
     override fun initAfterBinding() {
         Logger.d("App Version = %s", binding.tvVersion.text.toString())
 
+        Amplify.Auth.fetchAuthSession(
+            { result -> Logger.i("[AWS] AmplifyQuickstart %s", result.toString()) },
+            { error -> Logger.e("[AWS] AmplifyQuickstart %s", error.toString()) }
+        )
 //        loginAmplify()
 //        initAWSMobileClient()
     }
@@ -58,22 +62,22 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
             "test1",
             "Password123",
             AuthSignUpOptions.builder().userAttribute(AuthUserAttributeKey.email(), "my@email.com").build(),
-            { result -> Logger.i("AuthQuickStart signUp Result: $result")
+            { result -> Logger.i("[AWS] AuthQuickStart signUp Result: $result")
 
             },
-            { error -> Logger.e("AuthQuickStart Sign up failed %s", error) }
+            { error -> Logger.e("[AWS] AuthQuickStart Sign up failed %s", error) }
         )
 
         Amplify.Auth.signIn(
             "test1",
             "Password123",
-            { result -> Logger.i("AuthQuickStart signIn Result: $result") },
-            { error -> Logger.e("AuthQuickStart signIn failed %s", error) }
+            { result -> Logger.i("[AWS] AuthQuickStart signIn Result: $result") },
+            { error -> Logger.e("[AWS] AuthQuickStart signIn failed %s", error) }
         )
 
         Amplify.Auth.fetchAuthSession(
-            { result -> Logger.i("AmplifyQuickstart %s", result.toString()) },
-            { error -> Logger.e("AmplifyQuickstart %s", error.toString()) }
+            { result -> Logger.i("[AWS] AmplifyQuickstart %s", result.toString()) },
+            { error -> Logger.e("[AWS] AmplifyQuickstart %s", error.toString()) }
         )
     }
 
@@ -84,20 +88,20 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
         AWSMobileClient.getInstance()
             .initialize(applicationContext, object : Callback<UserStateDetails> {
                 override fun onResult(userStateDetails: UserStateDetails) {
-                    Logger.i("[AWS] INIT onResult:  User State " + userStateDetails.userState)
+                    Logger.i("[AWS] INIT AWSMobileClient onResult:  User State " + userStateDetails.userState)
                 }
 
                 override fun onError(e: java.lang.Exception) {
-                    Logger.e("[AWS] INIT Initialization error.", e)
+                    Logger.e("[AWS] INIT AWSMobileClient Initialization error.", e)
                 }
             }
             )
     }
 
     fun onClickUploadS3(view: View){
-//        uploadFileByAmplify()
+        uploadFileByAmplify()
 //        uploadWithAWSMobileClient()
-        uploadWithTransferUtility()
+//        uploadWithCredentialsProvider()
     }
 
     private fun uploadFileByAmplify() {
@@ -112,11 +116,18 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
         Amplify.Storage.uploadFile(
             key,
             exampleFile,
-            options,
-            { progress -> Logger.i("MyAmplifyApp] Fraction completed : ${progress.fractionCompleted}") },
-            { result -> Logger.i("MyAmplifyApp] Successfully uploaded : ${result.key}") },
-            { error -> Logger.e("MyAmplifyApp] Upload failed %s", error) }
+//            { progress -> Logger.i("[AWS] Amplify Fraction completed : ${progress.fractionCompleted}") },
+            StorageUploadFileOptions.defaultInstance(),
+            { result -> Logger.i("[AWS] Amplify Successfully uploaded : ${result.key}") },
+            { error -> Logger.e("[AWS] Amplify Upload failed %s", error) }
         )
+        // 다운로드 샘플
+//        Amplify.Storage.downloadFile(
+//            key,
+//            File("${applicationContext.filesDir}/download.txt"),
+//            { result -> Logger.i("MyAmplifyApp", "[AWS] Successfully downloaded: ${result.file.name}") },
+//            { error -> Logger.e("MyAmplifyApp", "[AWS] Download Failure", error) }
+//        )
     }
 
     private fun uploadWithAWSMobileClient() {
@@ -147,7 +158,7 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
             override fun onStateChanged(id: Int, state: TransferState) {
                 if (TransferState.COMPLETED == state) {
                     // Handle a completed upload.
-                    Logger.d("[AWS]  Upload Completed!")
+                    Logger.d("[AWS] MobileClient Upload Completed!")
                 }
             }
 
@@ -155,14 +166,14 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
                 val percentDonef = bytesCurrent.toFloat() / bytesTotal.toFloat() * 100
                 val percentDone = percentDonef.toInt()
                 Logger.d(
-                    "[AWS]  ID:" + id + " bytesCurrent: " + bytesCurrent
+                    "[AWS] MobileClient ID:" + id + " bytesCurrent: " + bytesCurrent
                             + " bytesTotal: " + bytesTotal + " " + percentDone + "%"
                 )
             }
 
             override fun onError(id: Int, ex: Exception) {
                 // Handle errors
-                Logger.d("[AWS]  Upload onError! $id ${ex.message}")
+                Logger.d("[AWS] MobileClient  Upload onError! $id ${ex.message}")
             }
         })
 
@@ -175,11 +186,11 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
             // Handle a completed upload.
         }
 
-        Logger.d("Bytes Transferred: " + uploadObserver.bytesTransferred)
-        Logger.d("Bytes Total: " + uploadObserver.bytesTotal)
+        Logger.d("[AWS]  MobileClient Bytes Transferred: " + uploadObserver.bytesTransferred)
+        Logger.d("[AWS]  MobileClient Bytes Total: " + uploadObserver.bytesTotal)
     }
 
-    private fun uploadWithTransferUtility() {
+    private fun uploadWithCredentialsProvider() {
 
         // Cognito 샘플 코드. CredentialsProvider 객체 생성
         val credentialsProvider = CognitoCachingCredentialsProvider(
@@ -212,21 +223,21 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
         downloadObserver.setTransferListener(object : TransferListener {
             override fun onStateChanged(id: Int, state: TransferState) {
                 if (state == TransferState.COMPLETED) {
-                    Logger.d("[AWS]  Upload Completed!")
+                    Logger.d("[AWS] CredentialsProvider Upload Completed!")
                 }
             }
 
             override fun onProgressChanged(id: Int, current: Long, total: Long) {
                 try {
                     val done = (((current.toDouble() / total) * 100.0).toInt()) //as Int
-                    Logger.d("[AWS]  Upload - - ID: $id, percent done = $done")
+                    Logger.d("[AWS] CredentialsProvider Upload - - ID: $id, percent done = $done")
                 } catch (e: Exception) {
-                    Logger.d("[AWS]  Trouble calculating progress percent", e)
+                    Logger.d("[AWS] CredentialsProvider Trouble calculating progress percent", e)
                 }
             }
 
             override fun onError(id: Int, ex: Exception) {
-                Logger.d("[AWS] Upload ERROR - - ID: $id - - EX: ${ex.message.toString()}")
+                Logger.d("[AWS] CredentialsProvider Upload ERROR - - ID: $id - - EX: ${ex.message.toString()}")
             }
         })
     }
