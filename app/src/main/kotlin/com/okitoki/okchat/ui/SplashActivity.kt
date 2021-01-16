@@ -40,7 +40,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun initCheckServer(){
         binding.vm?.reqServerCheck()
-        Handler().postDelayed({ startAwsAmplifynActivity() }, 1000L)
+        Handler().postDelayed({ startLocationTestActivity() }, 1000L)
     }
 
     private fun startMainActivity(){
@@ -63,6 +63,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun startAwsAmplifynActivity(){
         val intent = Intent(applicationContext, AwsAmplifyActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun startLocationTestActivity(){
+        val intent = Intent(applicationContext, LocationTestActivity::class.java)
         startActivity(intent)
         finish()
     }

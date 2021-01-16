@@ -3,6 +3,7 @@ package com.okitoki.okchat
 import org.hamcrest.CoreMatchers
 import org.hamcrest.core.Is
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -79,5 +80,10 @@ class ExampleUnitTest {
             e.printStackTrace()
         }
         return ""
+    }
+
+    @Test
+    fun `Util Test`() {
+
     }
 }

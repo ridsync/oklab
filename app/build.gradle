@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -111,16 +112,15 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation deps.support.v4
     implementation deps.support.annotations
     implementation deps.support.app_compat
     implementation deps.support.design
     implementation deps.support.recyclerview
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation deps.constraint_layout
+    implementation "com.google.android.material:material:1.2.1"
 
     // Architecture components
     implementation deps.lifecycle.runtime
@@ -188,4 +188,40 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-s3:2.20.1'
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.19.3'
     implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.19.3'
+
+    // AboutLibraries
+    implementation "com.mikepenz:aboutlibraries:${latestAboutLibsRelease}"
+
+    implementation 'gun0912.ted:tedbottompicker:2.0.1'
+
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.13'
+    // Optional -- Robolectric environment
+    testImplementation 'androidx.test:core:1.3.0'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:3.1.0'
+    testImplementation 'com.google.truth:truth:1.0.1'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.ext:truth:1.3.0'
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Kotest
+    testImplementation 'io.kotest:kotest-runner-junit5:4.3.1' // for kotest framework
+    testImplementation 'io.kotest:kotest-assertions-core:4.3.1' // for kotest core jvm assertions
+    testImplementation 'io.kotest:kotest-property:4.3.1' // for kotest property test
+
+}
+
+android.testOptions {
+    unitTests.all {
+        useJUnitPlatform()
+    }
 }
