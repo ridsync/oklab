@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 /**
  * @author ridsync
  */
-abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding> : BaseLogFragment() {
     @LayoutRes
     abstract fun getLayoutResId(): Int
 

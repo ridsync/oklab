@@ -129,6 +129,35 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  
+  thirdPartyAuth:
+    Type: String
+            
+  
+  userPoolGroups:
+    Type: String
+            
+  
+  adminQueries:
+    Type: String
+            
+  triggers:
+    Type: String
+  
+            
+  
+  hostedUI:
+    Type: String
+            
+            
+      
+  parentStack:
+    Type: String
+        
+        
+  permissions:
+    Type: CommaDelimitedList
+      
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -190,9 +219,6 @@ Resources:
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
       
       
-      EmailVerificationMessage: !Ref emailVerificationMessage
-      EmailVerificationSubject: !Ref emailVerificationSubject
-      
       Policies:
         PasswordPolicy:
           MinimumLength: !Ref passwordPolicyMinLength
@@ -207,6 +233,18 @@ Resources:
         SnsCallerArn: !GetAtt SNSRole.Arn
         ExternalId: oklabac9ca473_role_external_id
     
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  # Updating lambda role with permissions to Cognito
+  
   
   UserPoolClientWeb:
   # Created provide application access to user pool
