@@ -11,6 +11,9 @@
 
 ## Android Test Lab List
 
-1. AwsAmplifyActivity
-2. LocationTestActivity
-3. FontStyleTestActivity
+1. LoginActivity 
+  - SMS Verification API Test
+  - com.mikepenz:aboutlibraries Test
+2. AwsAmplifyActivity
+3. LocationTestActivity
+4. FontStyleTestActivity
