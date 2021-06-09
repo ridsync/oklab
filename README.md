@@ -15,5 +15,7 @@
   - SMS Verification API Test
   - com.mikepenz:aboutlibraries Test
 2. AwsAmplifyActivity
+  - AWS Amplify Test
 3. LocationTestActivity
+  - GeoLocation Test
 4. FontStyleTestActivity
