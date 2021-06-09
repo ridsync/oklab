@@ -12,10 +12,10 @@
 ## Android Test Lab List
 
 1. LoginActivity 
-  - SMS Verification API Test
-  - com.mikepenz:aboutlibraries Test
+	  - SMS Verification API Test
+	  - com.mikepenz:aboutlibraries Test
 2. AwsAmplifyActivity
-  - AWS Amplify Test
+	  - AWS Amplify Test
 3. LocationTestActivity
-  - GeoLocation Test
+	  - GeoLocation Test
 4. FontStyleTestActivity
