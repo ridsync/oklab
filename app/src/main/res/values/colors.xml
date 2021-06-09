@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#844e8b</color>
     <color name="colorAccent">#D81B60</color>
     <color name="dialog_bg">#2a2a2a</color>
+    <color name="white">#ffffff</color>
+
+    <color name="main_text_primary">#222222</color>
+    <color name="main_text_secondary">#7f7f7f</color>
 </resources>

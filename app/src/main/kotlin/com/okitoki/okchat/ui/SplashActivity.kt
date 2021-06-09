@@ -40,7 +40,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun initCheckServer(){
         binding.vm?.reqServerCheck()
-        Handler().postDelayed({ startLocationTestActivity() }, 1000L)
+        Handler().postDelayed({ startFontStyleTestActivity() }, 1000L)
     }
 
     private fun startMainActivity(){
@@ -69,6 +69,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun startLocationTestActivity(){
         val intent = Intent(applicationContext, LocationTestActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun startFontStyleTestActivity(){
+        val intent = Intent(applicationContext, FontStyleTestActivity::class.java)
         startActivity(intent)
         finish()
     }
