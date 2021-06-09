@@ -10,7 +10,6 @@ import com.okitoki.okchat.ui.base.BaseActivity
 import com.okitoki.okchat.util.GeocodeUtil
 import com.okitoki.okchat.util.getAppVersion
 import com.orhanobut.logger.Logger
-import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.util.*
 
 
