@@ -63,7 +63,7 @@ class ChromCustomTabTestActivity : BaseActivity<ActivityChromeCustomtabBinding>(
         val colorSchemeBuilder = CustomTabColorSchemeParams.Builder().apply {
             setToolbarColor(ContextCompat.getColor(applicationContext,R.color.colorPrimary))
         }
-        custonTabBuilder.setColorSchemeParams(CustomTabsIntent.COLOR_SCHEME_LIGHT,colorSchemeBuilder.build())
+        custonTabBuilder.setDefaultColorSchemeParams(colorSchemeBuilder.build())
         val customTabsIntent = custonTabBuilder.build()
         return try {
             customTabsIntent.launchUrl(this, Uri.parse(url))
