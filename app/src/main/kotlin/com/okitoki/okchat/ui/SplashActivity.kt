@@ -40,7 +40,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun initCheckServer(){
         binding.vm?.reqServerCheck()
-        Handler().postDelayed({ startFontStyleTestActivity() }, 1000L)
+        Handler().postDelayed({ startChromeCutomTabActivity() }, 1000L)
     }
 
     private fun startMainActivity(){
@@ -75,6 +75,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun startFontStyleTestActivity(){
         val intent = Intent(applicationContext, FontStyleTestActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun startChromeCutomTabActivity(){
+        val intent = Intent(applicationContext, ChromCustomTabTestActivity::class.java)
         startActivity(intent)
         finish()
     }

@@ -271,7 +271,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     private fun buildMediaSource(uri: Uri) : MediaSource{
         var userAgent:String = Util.getUserAgent(this, packageName)
-        if(uri.lastPathSegment.contains("mp3") || uri.lastPathSegment.contains("mp4")){
+        if(uri.lastPathSegment?.contains("mp3") == true || uri.lastPathSegment?.contains("mp4") == true){
             return ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory(userAgent)).createMediaSource(
                 uri
             )
