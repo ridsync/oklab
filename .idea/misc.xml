@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_chrome_customtab.xml" value="0.33645833333333336" />
+        <entry key="app/src/main/res/layout/activity_font_style.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.30027173913043476" />
       </map>
     </option>
   </component>

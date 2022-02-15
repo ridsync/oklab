@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
-    compileSdkVersion build_versions.target_sdk
+    compileSdkVersion 31
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
@@ -220,6 +220,8 @@ dependencies {
     testImplementation 'io.kotest:kotest-assertions-core:4.3.1' // for kotest core jvm assertions
     testImplementation 'io.kotest:kotest-property:4.3.1' // for kotest property test
 
+    // Admob
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
 }
 
 android.testOptions {
