@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.Button
 import androidx.annotation.LayoutRes
 import com.google.android.gms.ads.*
-import com.google.android.gms.ads.interstitial.IntxerstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.okitoki.okchat.R
 import com.okitoki.okchat.databinding.ActivitySplashBinding
