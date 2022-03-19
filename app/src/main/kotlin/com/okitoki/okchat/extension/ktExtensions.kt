@@ -31,9 +31,7 @@ fun showToast(context: Context, message:String) {
  */
 fun showProgressDialog(context: Context?) : ProgressDialog {
     val progressDialog = ProgressDialog(context)
-    if (progressDialog.window != null) {
-        progressDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-    }
+    progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     progressDialog.setContentView(R.layout.progress_dialog)
     progressDialog.isIndeterminate = true
     progressDialog.setCancelable(false)
