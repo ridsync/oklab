@@ -98,6 +98,9 @@ class AwsAmplifyActivity  : BaseActivity<ActivityAwsAmplifyBinding>() {
             )
     }
 
+    /**
+     * 업로드 방법 3가지가 존재 어떤 방법이 적합한가 ?
+     */
     fun onClickUploadS3(view: View){
         uploadFileByAmplify()
 //        uploadWithAWSMobileClient()
