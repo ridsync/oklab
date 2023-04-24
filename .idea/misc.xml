@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_chrome_customtab.xml" value="0.33645833333333336" />
         <entry key="app/src/main/res/layout/activity_font_style.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.13360507246376813" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.30027173913043476" />
+        <entry key="app/src/main/res/menu/navigation.xml" value="0.24814814814814815" />
       </map>
     </option>
   </component>

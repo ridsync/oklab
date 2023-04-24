@@ -14,18 +14,19 @@
             android:background="@color/colorPrimary"
             tools:context="ui.SplashActivity">
 
-
         <ImageView
-            android:id="@+id/ivMessage"
-                android:layout_width="wrap_content"
+                android:id="@+id/ivMessage"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                app:layout_constraintWidth_max="400dp"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" android:contentDescription="TODO"/>
-
         <TextView
             android:id="@+id/tvVersion"
             android:text=""
