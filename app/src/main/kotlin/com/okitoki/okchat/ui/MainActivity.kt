@@ -1,14 +1,24 @@
 package com.okitoki.okchat.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.okitoki.okchat.R
 import com.okitoki.okchat.ui.dialog.TestDialogFragment
 import com.okitoki.okchat.ui.testui.TestLabMainFragment
+import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import java.lang.Thread.sleep
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,16 +55,24 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         findViewById<Button>(R.id.mrbButton).setOnClickListener {
-//            val bundle = Bundle()
+            val intent = Intent(applicationContext, FontStyleTestActivity::class.java)
+            startActivity(intent)
+
+            Handler().postDelayed( {
+                Logger.d("TestDialogFragment start")
 //            bundle.putParcelable(EXTRA_NOTICE_SAVE, FavoriteNotice(it.num, it.title, it.link))
-            val dialog: TestDialogFragment = TestDialogFragment.newInstance()
+                val dialog: TestDialogFragment = TestDialogFragment.newInstance()
 //            dialog.arguments = bundle
-            supportFragmentManager.let { fragmentManager ->
-                dialog.show(
-                    fragmentManager,
-                    TAG_DIALOG_EVENT
-                )
-            }
+                supportFragmentManager.let { fragmentManager ->
+                    dialog.show(
+                        fragmentManager,
+                        TAG_DIALOG_EVENT
+                    )
+                }
+            } , 2000)
+            //            val bundle = Bundle()
+
+
         }
     }
 }

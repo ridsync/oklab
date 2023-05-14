@@ -24,7 +24,7 @@ class TestDialogFragment : DialogFragment() , View.OnClickListener{
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dialog_test_fragment, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return view
     }
 
 

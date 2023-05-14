@@ -51,6 +51,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
         initHandler()
 
+        startMainActivity()
+
 //        Logger.d("Logging CoroutineScope Test Start")
 //        CoroutineScope(Dispatchers.Main).launch {
 //            Logger.d("Logging Before testSuspend")
